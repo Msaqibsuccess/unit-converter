@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 600px;
+            height: 200px;
+            background-color: lightgreen;
+            border-radius: 10px;
+            text-align: center;
+            padding:30px;
+        }
+        h1 {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .form-field {
+            display: flex;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #000;
+            font-weight: 500;
+        }
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            font-size: 17px;
+        }
+        span {
+            display: inline-block;
+            margin: 20px;
+            font-size: 30px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <div class="form-field">
+            <h2>Feet</h2>
+            <input type="text" id="foot" placeholder="0">
+        </div>
+       <span>=</span>
+        <div class="form-field">
+            <h2>Inch</h2>
+            <input type="text" id="inch" placeholder="0">
+        </div>
+
+    </div>
+
+
+
+    <script>
+        var foot = document.getElementById("foot");
+        var inch = document.getElementById("inch");
+
+        foot.addEventListener("input", function () {
+            var f = this.value;
+            var i = f * 12;
+            inch.value = i;
+            
+        });
+
+
+        inch.addEventListener("input", function () {
+            var i = this.value;
+            var f = i/12;
+            if(!Number.isInteger(f)) {
+                f = f.toFixed(2);
+                
+            }
+            foot.value = f;
+
+        });
+
+    </script>
+
+</body>
+
+</html>
